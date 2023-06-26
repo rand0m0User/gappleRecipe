@@ -1,0 +1,6 @@
+name: AppleRecipe
+version: 1.0
+main: com.recipe.AppleRecipe
+api-version: 1.13
+authors: [baritone]
+description: Adds a enchanted golden apple crafting recipe into the game
