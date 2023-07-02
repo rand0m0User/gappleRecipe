@@ -2,11 +2,15 @@ package com.recipe;
 
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class AppleRecipe extends JavaPlugin {
+public final class AppleRecipe extends JavaPlugin implements Listener {
 
     //I ❤ BOILERPLATE
     //I ❤ BOILERPLATE
@@ -15,6 +19,8 @@ public final class AppleRecipe extends JavaPlugin {
     public void onEnable() {
         AddGappleRecipe();
         AddWitherStarRecipe();
+        //register onPlayerInteract for portable crafting table funcionality
+        this.getServer().getPluginManager().registerEvents(new AppleRecipe(), this);
     }
 
     public void AddGappleRecipe() {
@@ -33,5 +39,16 @@ public final class AppleRecipe extends JavaPlugin {
         recipe.setIngredient('W', Material.WITHER_SKELETON_SKULL);
         recipe.setIngredient('S', Material.SOUL_SAND);
         this.getServer().addRecipe(recipe);
+    }
+
+    //####### crafting table funcionality #######
+    //TODO: tell wether or not the player is using the item while not pointing at anything
+    @EventHandler
+    public void onPlayerInteract(PlayerInteractEvent e) {
+        Player p = e.getPlayer();
+        //if the player is sneaking while holding a crafting table
+        if (p.isSneaking() && p.getInventory().getItemInMainHand().getType().equals(Material.CRAFTING_TABLE)) {
+            p.openWorkbench(p.getLocation(), true); //open the crafting UI
+        }
     }
 }
