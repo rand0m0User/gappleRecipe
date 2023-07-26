@@ -1,6 +1,7 @@
-name: AppleRecipe
+name: soycraft crafting additions
 version: 1.0
-main: com.recipe.AppleRecipe
+main: src.com.recipe.recipes
 api-version: 1.13
 authors: [baritone]
-description: Adds a enchanted golden apple crafting recipe into the game
+description: Adds additional crafting recipes to improve late-game crafting and automation
+
