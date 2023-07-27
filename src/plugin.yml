@@ -1,6 +1,6 @@
-name: soycraft crafting additions
+name: soycraft-crafting-additions
 version: 1.0
-main: src.com.recipe.recipes
+main: com.recipe.recipes
 api-version: 1.13
 authors: [baritone]
 description: Adds additional crafting recipes to improve late-game crafting and automation
