@@ -52,7 +52,7 @@ public final class recipes extends JavaPlugin implements Listener {
     public void AddSandFromSandstoneRecipe() { //add a sand recipe for automation of concete 
         NamespacedKey key = new NamespacedKey(this, "sand");
         ShapedRecipe recipe = new ShapedRecipe(key, new ItemStack(Material.SAND, 4));
-        recipe.shape(new String[]{"S ", "   ", "   "});
+        recipe.shape(new String[]{"S  ", "   ", "   "});
         recipe.setIngredient('S', Material.SANDSTONE);
         this.getServer().addRecipe(recipe);
     }
